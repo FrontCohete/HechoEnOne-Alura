@@ -20,23 +20,24 @@ function _send(){
 
     if(num_User===num_random){
     _asignarTexto(`p`, `ADIVINASTE!`); 
+    _end();
     }
     else{
         if(num_User < num_random){
             _asignarTexto(`p`, `El numero secreto es menor || Tienes ${n_intentos} intentos :D`);
         }
         else{
-            _asignarTexto(`p`, `El numero secreto es menor || Tienes ${n_intentos} intentos :D`);
+            _asignarTexto(`p`, `El numero secreto es mayor || Tienes ${n_intentos} intentos :D`);
         }
     } 
 
     if(n_intentos<0){
         alert(`LLEGASTE AL LIMITE DE INTENTOS`);
         _asignarTexto(`p`, `Te quedaste sin intentos, el numero era ${num_random}`);
-
-        document.getElementById('valor_User').disabled = true;
+        _end();
     }
 
+    _limpiarTxtBox();
 
 }
 
@@ -46,5 +47,17 @@ function _main(){
     _asignarTexto(`label`, `Adivina el numéro del 1 al ${limiteRandom}`);   
 }
 
+function _limpiarTxtBox(){
+    let valorBox = document.querySelector('#valor_User');
+    valorBox.value = '';
+}
 
+function _end(){
+        document.getElementById('valor_User').disabled = true;
+        document.getElementById('btn_Reset_App').removeAttribute('disabled') = false;
+}
+
+function _reset(){
+    alert(`HOLACRAYOLA`);
+}
 _main();
