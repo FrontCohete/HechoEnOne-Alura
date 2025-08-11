@@ -13,6 +13,10 @@ function _asignarTexto(elemento, texto){
 
 }
 
+function _limpiarTxtBox(){
+    let valorBox = document.querySelector('#valor_User');
+    valorBox.value = '';
+}
 function _send(){
     let num_User = parseInt(document.getElementById('valor_User').value);
     
@@ -28,6 +32,11 @@ function _send(){
         if(num_User===num_random){
         _asignarTexto(`p`, `ADIVINASTE!`); 
         _end();
+        
+        document.querySelector('#btn_Reward').removeAttribute('hidden');
+        requestAnimationFrame(()=>{
+
+        })
         }
         else{
             if(num_User < num_random){
@@ -44,15 +53,11 @@ function _send(){
 }
 
 
-function _limpiarTxtBox(){
-    let valorBox = document.querySelector('#valor_User');
-    valorBox.value = '';
-}
 
 function _end(){
     document.getElementById('valor_User').disabled = true;
     document.querySelector('#btn_Send_App').setAttribute('disabled', 'true');
-    document.querySelector('#btn_Reset_App').removeAttribute('disabled')
+    document.querySelector('#btn_Reset_App').removeAttribute('disabled');
 }
 
 function _reset(){
@@ -60,14 +65,16 @@ function _reset(){
     alert(`Se generó un nuevo numero secreto`);
     //Reestablecer valores
     n_intentos = 3;
-    num_random = _generarRandom() 
-    // Habilitar btnSend & txtBx y Deshabilitar btnReset
-    document.querySelector('#btn_Send_App').removeAttribute('disabled')
+    num_random = _generarRandom() ;
+    // Habilitar btnSend & txtBx y Deshabilitar btnReset & btnReward
+    document.querySelector('#btn_Send_App').removeAttribute('disabled');
     document.getElementById('valor_User').disabled = false;
     document.querySelector('#btn_Reset_App').setAttribute('disabled', 'true');
+    document.querySelector('#btn_Reward').hidden=true;
+    document.querySelector('section').hidden=true;
     // Habilitar Mensajes iniciales
     _main();
-
+    
 
     // |-> Funcion para recargar la página //location.reload(); 
 }
@@ -77,6 +84,11 @@ function _main(){
     _asignarTexto(`h1`, `Adivina el número || No es ${num_random}`);    
     _asignarTexto(`p`, `Tienes ${n_intentos} intentos :D`);
     _asignarTexto(`label`, `Adivina el numéro del 1 al ${limiteRandom}`);   
+    
 }
 
 _main();
+
+function _reward(){
+       document.getElementById('img_reward').innerHTML = '<img class="reward"  src="./img/pato♥.png" alt="Sino ves un pato, te mueres c:">';
+}
