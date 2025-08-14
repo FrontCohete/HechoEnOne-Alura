@@ -2,6 +2,8 @@ const limiteRandom = 10;
 let n_intentos = 3;
 let num_random = _generarRandom();
 
+let nummeros_sorteados=[];
+
 
 function _generarRandom() {
     return Math.floor(Math.random()*limiteRandom)+1;
@@ -71,7 +73,7 @@ function _reset(){
     document.getElementById('valor_User').disabled = false;
     document.querySelector('#btn_Reset_App').setAttribute('disabled', 'true');
     document.querySelector('#btn_Reward').hidden=true;
-    document.querySelector('section').hidden=true;
+    document.querySelector('#img').hidden=true;
     // Habilitar Mensajes iniciales
     _main();
     
@@ -90,5 +92,5 @@ function _main(){
 _main();
 
 function _reward(){
-       document.getElementById('img_reward').innerHTML = '<img class="reward"  src="./img/pato♥.png" alt="Sino ves un pato, te mueres c:">';
+       document.getElementById('img_reward').innerHTML = '<img class="reward" id="img" src="./img/pato♥.png" alt="Sino ves un pato, te mueres c:"> ';
 }
