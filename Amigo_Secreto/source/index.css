@@ -1,0 +1,85 @@
+:root{
+  --amarillo: rgb(252, 227, 5);
+  --negro: rgb(43, 40, 40);
+  --guinda: rgb(207, 27, 57);
+  --azul: rgb(71, 196, 255);
+  --blanco: rgb(235, 235, 235);
+  --transparente_negro: rgba(54, 54, 54, 0.658);
+  --transparente_total: rgba(0, 0, 0, 0.055);
+
+}
+/*FUENTES*/
+
+html,body{
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    
+    font-family: "Ancizar Sans", sans-serif;
+    
+    height: 100%;
+
+
+}
+footer{
+    background-color:var(--negro);
+    position: absolute;
+    bottom: 0;
+    
+    width: 100%;
+    height: 3em;
+
+    background: linear-gradient(var(--transparente_total),var(--negro));
+}
+footer h2{
+    font-size: 1em;
+    margin: 1em 0em;
+    
+    color: var(--blanco);
+    text-align: center;
+}
+/*HEADER*/
+header{
+    width: 100%;
+    height: 20em;
+    
+    background-image: url(./img/Wall_I.gif);
+    background-position:center;
+    background-repeat:repeat;
+    background-size:contain;
+    
+    display: grid;
+    place-items: center;
+}
+
+.filter-container{
+    width: 70%;
+    height: 100%;
+    backdrop-filter: blur(2px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-container h1{
+    font-family: "Pixelify Sans", sans-serif;
+    color: var(--negro);
+    font-size: 4em;
+}
+/*MAIN FORM*/
+main{
+  flex: 1; /* Esto hace que se expanda para ocupar el espacio restante */
+  background: linear-gradient(var(--azul), var(--transparente_negro),var(--negro));
+  display: grid;
+  place-items: center;
+}
+
+.form-container{
+    width: 70%;
+    height: 20em;
+    background-color: var(--transparente_negro);
+    border-radius: 2em;
+    padding: 2em;
+}
